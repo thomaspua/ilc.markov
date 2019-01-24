@@ -1,8 +1,18 @@
 package cfranc.ilc;
 
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+//--------------------------test ajoutés-----------
+//THOMAS PUAUD
+/*
+testunion : j'ai testé des trucs, il se trouve que je comprends ce que ça fait, tans pis
+
+
+*/
 
 public class MarkovWordTest {
 
@@ -26,4 +36,39 @@ public class MarkovWordTest {
 		assertEquals(expected, actual,0.000000001);		
 	}	
 
+        
+        
+        @Test
+	public void testunion() {
+            MarkovWord m = new MarkovWord();
+            
+            MarkovData chaine1 = new MarkovData("ba",2);
+            MarkovData chaine2 = new MarkovData("ta",2);
+            MarkovData chaine3 = new MarkovData("pa",2);
+            MarkovData chaine4 = new MarkovData("lu",2);
+            MarkovData chaine5 = new MarkovData("tu",2);
+            
+            List<MarkovData> One = new ArrayList<MarkovData>();
+            List<MarkovData> Two = new ArrayList<MarkovData>();
+            
+            One.add(chaine3);
+            One.add(chaine3);
+            One.add(chaine3);
+            Two.add(chaine3);
+            Two.add(chaine3);
+            Two.add(chaine3);
+            
+            int expected = 5;
+            int actual = m.union(One, Two);
+            System.out.println(actual);
+            
+            if(expected == actual){
+                System.out.println("union marche");
+            }
+            else{
+                System.out.println("union marche pas");
+            }
+            
+		fail("Not yet implemented");
+	}
 }
